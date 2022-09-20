@@ -4,6 +4,7 @@ const connectDB = require("./config/db");
 require("dotenv").config();
 
 const app = express();
+const port = 5000;
 
 connectDB();
 
@@ -12,8 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/api/texts", require("./routes/textRoutes"));
-
-const port = 5000;
 
 app.get("/", (req, res) => {
   res.send("tf you doing here");
