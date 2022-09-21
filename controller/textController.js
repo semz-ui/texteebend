@@ -11,16 +11,25 @@ const getText1 = asyncHandler(async (req, res) => {
 });
 
 const setText = asyncHandler(async (req, res) => {
-  const { title, text, rate } = req.body;
-  if (!title || !text || !rate) {
+  const { companyName, companyAddress, platformFee, TryFee, FeatureFee } =
+    req.body;
+  if (
+    !companyName ||
+    !companyAddress ||
+    !platformFee ||
+    !TryFee ||
+    !FeatureFee
+  ) {
     res.status(404).json({
       message: "input all feilds",
     });
   }
   const texts = await Text.create({
-    title,
-    text,
-    rate,
+    companyName,
+    companyAddress,
+    platformFee,
+    TryFee,
+    FeatureFee,
   });
   res.status(200).json(texts);
 });

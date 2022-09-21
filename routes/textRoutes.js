@@ -14,6 +14,6 @@ router.post("/rae", setText1);
 router.get("/", getText);
 router.get("/rae", getText1);
 router.get("/single", singleGoal);
-router.put("/update", updateText);
+router.patch("/update", updateText);
 
 module.exports = router;
