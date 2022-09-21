@@ -5,11 +5,6 @@ const getText = asyncHandler(async (req, res) => {
   const texts = await Text.find({ id: req._id });
   res.status(200).json(texts);
 });
-const getText1 = asyncHandler(async (req, res) => {
-  const texts = await Text.find({ id: req._id });
-  res.status(200).json(texts);
-});
-
 const setText = asyncHandler(async (req, res) => {
   const { companyName, companyAddress, platformFee, TryFee, FeatureFee } =
     req.body;
@@ -30,20 +25,6 @@ const setText = asyncHandler(async (req, res) => {
     platformFee,
     TryFee,
     FeatureFee,
-  });
-  res.status(200).json(texts);
-});
-const setText1 = asyncHandler(async (req, res) => {
-  const { title, text, rate } = req.body;
-  if (!title || !text || !rate) {
-    res.status(404).json({
-      message: "input all feilds",
-    });
-  }
-  const texts = await Text.create({
-    title,
-    text,
-    rate,
   });
   res.status(200).json(texts);
 });
@@ -75,9 +56,7 @@ const singleGoal = asyncHandler(async (req, res) => {
 
 module.exports = {
   setText,
-  setText1,
   getText,
-  getText1,
   updateText,
   singleGoal,
 };
